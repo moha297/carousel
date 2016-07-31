@@ -17,12 +17,17 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve: {
+          gallery: function(galleryService) {
+            return galleryService.getGallery()
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'
