@@ -81,3 +81,36 @@ body {
     border-bottom: 0;
   }
 }
+
+
+
+/* Custom Common CSS*/
+.width100{
+  width:100%;
+}
+
+
+/*Custom app css*/
+.carousel-cont{
+  color:white;
+  min-height:500px;
+  background-color: black;
+}
+.carousel-cont .slides-cont{
+  position:relative;
+  min-height:500px;
+  background-color: black;
+}
+
+.carousel-cont .slides-cont .left-arrow, .carousel-cont .slides-cont .right-arrow{
+  position:absolute;
+  top: calc(50% - 39px);
+  height:78px;
+  width:78px;
+}
+.carousel-cont .slides-cont .left-arrow{
+  left:30px;
+}
+.carousel-cont .slides-cont .right-arrow{
+  right:30px;
+}

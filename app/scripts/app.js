@@ -25,7 +25,7 @@ angular
         controllerAs: 'main',
         resolve: {
           gallery: function(galleryService) {
-            return galleryService.getGallery()
+            return galleryService.getGallery();
           }
         }
       })

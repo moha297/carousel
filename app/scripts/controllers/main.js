@@ -8,6 +8,6 @@
  * Controller of the carouselApp
  */
 angular.module('carouselApp')
-  .controller('MainCtrl', function (gallery) {
-    console.log(gallery);
+  .controller('MainCtrl', function ($scope, gallery) {
+    $scope.gallery = gallery;
   });

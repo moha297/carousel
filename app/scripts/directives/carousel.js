@@ -7,12 +7,20 @@
  * # carousel
  */
 angular.module('carouselApp')
-  .directive('carousel', function () {
+  .directive('carousel', function() {
     return {
-      template: '<div></div>',
+      templateUrl: 'views/directives/carousel.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the carousel directive');
+      replace: true,
+      scope:{
+        gallery:"=gallery",
+        album:"=album"
+      },
+      link: function postLink(scope, element /*, attrs*/ ) {
+
+        scope.$watch('gallery', function(newValue, oldValue) {
+          console.log(newValue);
+        });
       }
     };
   });
