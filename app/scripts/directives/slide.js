@@ -9,10 +9,14 @@
 angular.module('carouselApp')
   .directive('slide', function () {
     return {
-      template: '<div></div>',
+      templateUrl: 'views/directives/slide.html',
       restrict: 'E',
+      replace: true,
+      scope:{
+        photo:"=photo"
+      },
       link: function postLink(scope, element, attrs) {
-        element.text('this is the slide directive');
+        
       }
     };
   });

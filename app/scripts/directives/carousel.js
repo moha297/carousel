@@ -13,13 +13,19 @@ angular.module('carouselApp')
       restrict: 'E',
       replace: true,
       scope:{
-        gallery:"=gallery",
+        photos:"=photos",
         album:"=album"
       },
       link: function postLink(scope, element /*, attrs*/ ) {
-
-        scope.$watch('gallery', function(newValue, oldValue) {
-          console.log(newValue);
+        var slideCont = element.find('.slides-cont');
+        var containerWidth = slideCont.width(),
+            containerHeight = slideCont.height();
+        scope.slideW = containerWidth;
+        scope.slideH = containerHeight;
+        scope.$watch('photos', function(newValue, oldValue) {
+          var cnt = newValue.length;
+          scope.reelWidth = scope.slideW * cnt;
+          scope.slideList = newValue;
         });
       }
     };

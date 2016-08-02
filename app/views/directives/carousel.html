@@ -1,15 +1,21 @@
 <div class="width100 carousel-cont">
-  {{album.name}}
+  <div class="album-header">
+  </div>
+  <h3 class="album-title">{{album.name}}</h3>
   <div class="slides-cont pr">
     <span class="left-arrow">
       <img src="/images/left.png"></img>
     </span>
-    <div class="slides">
+    <div class="slide-reel" style="width:{{reelWidth}}px;">
+
+        <slide photo="photo" slide-width="{{slideW}}" slide-height="{{slideH}}"  ng-repeat="photo in slideList"></slide>
+
     </div>
     <span class="right-arrow">
       <img src="/images/right.png"></img>
     </span>
   </div>
+
   <div class="thumbnails">
 
   </div>
