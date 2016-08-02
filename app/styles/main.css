@@ -94,7 +94,6 @@ body {
 .carousel-cont{
   color:white;
   min-height:500px;
-  background-color: red;
   position:relative;
 }
 .carousel-cont .album-header{
@@ -122,7 +121,7 @@ body {
 .carousel-cont .slides-cont{
   position:relative;
   min-height:500px;
-  background-color: red;
+  overflow: hidden;
 }
 
 .carousel-cont .slides-cont .left-arrow, .carousel-cont .slides-cont .right-arrow{
@@ -130,6 +129,7 @@ body {
   top: calc(50% - 39px);
   height:78px;
   width:78px;
+  cursor: pointer;
 }
 .carousel-cont .slides-cont .left-arrow{
   left:30px;
@@ -142,6 +142,5 @@ body {
   width:100000px;
 }
 .carousel-cont .slides-cont .slide-reel .slide{
-  width:1000px;
   float:left;
 }

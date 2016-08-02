@@ -16,7 +16,8 @@ angular.module('carouselApp')
         photo:"=photo"
       },
       link: function postLink(scope, element, attrs) {
-        
+        scope.width = attrs.slideWidth;
+        scope.height = attrs.slideHeight;
       }
     };
   });
