@@ -26,13 +26,35 @@ angular.module('carouselApp')
         scope.slideW = containerWidth;
         scope.slideH = containerHeight;
 
+        //Slider original position
+        scope.slideVal = 0;
+
+        scope.currentIndex = 0;
+
+        // We watch the photos data to get things in right order
         scope.$watch('photos', function(newValue, oldValue) {
           var cnt = newValue.length; //number of photos in album
           scope.slideCount = cnt;
-          scope.reelWidth = scope.slideW * cnt; // reel size based on number of photos
+          scope.reelWidth = scope.slideW * scope.slideCount; // reel size based on number of photos
           // This will take the photos to the view layer
           scope.slideList = newValue;
         });
+
+
+        // Handler for left arrow click event. Moves the slider left.
+        scope.leftArrow = function(){
+          if(scope.currentIndex > 0) {
+            scope.currentIndex--;
+            scope.slideVal = scope.currentIndex * scope.slideW;
+          }
+        };
+        // Handler for right arrow click event. Moves the slider right.
+        scope.rightArrow = function(){
+          if(scope.currentIndex < scope.slideCount-1) {
+            scope.currentIndex++;
+            scope.slideVal = scope.currentIndex * scope.slideW;
+          }
+        };
       }
     };
   });

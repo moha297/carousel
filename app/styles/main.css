@@ -98,7 +98,6 @@ body {
 }
 .carousel-cont .album-header{
   width:100%;
-  color:white;
   background-color: #000000;
   opacity:0.5;
   position:absolute;;
@@ -130,6 +129,7 @@ body {
   height:78px;
   width:78px;
   cursor: pointer;
+  z-index: 105
 }
 .carousel-cont .slides-cont .left-arrow{
   left:30px;
@@ -140,7 +140,52 @@ body {
 
 .carousel-cont .slides-cont .slide-reel{
   width:100000px;
+  transition: transform ease 1000ms;
+
 }
 .carousel-cont .slides-cont .slide-reel .slide{
   float:left;
+  position: relative;
+}
+.carousel-cont .slides-cont .slide-reel .slide .slide-bottom-header-bkg{
+  width:100%;
+  background-color: #000000;
+  opacity:0.5;
+  position:absolute;;
+  z-index: 100;
+  height: 115px;
+  bottom:0px;
+  left:0px;
+}
+
+
+.carousel-cont .slides-cont .slide-reel .slide .slide-bottom-header-content{
+  width:100%;
+  bottom:0px;
+  text-align: center;
+  font-size:40px;
+  font-family: arial;
+  position:absolute;
+  z-index: 102;
+  height: 115px;
+}
+
+.carousel-cont .thumbnails{
+  height:157px;
+  width:100%;
+  background-color: #727980;
+  text-align: center;
+  padding: 40px 10px 0px 10px;
+}
+.carousel-cont .thumbnails .thumb{
+  cursor: pointer;
+  float:left;
+  padding-right: 7px;
+}
+.carousel-cont .thumbnails .thumb img{
+
+  height:70px;
+}
+.carousel-cont .thumbnails  .thumb img.active{
+  height:100px;
 }

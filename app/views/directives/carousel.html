@@ -3,20 +3,24 @@
   </div>
   <h3 class="album-title">{{album.name}}</h3>
   <div class="slides-cont pr" style="height:{{slideH}}px;">
-    <span class="left-arrow">
+    <span class="left-arrow" ng-click="leftArrow();">
       <img src="/images/left.png"></img>
     </span>
-    <div class="slide-reel" style="width:{{reelWidth}}px;">
-
-        <slide photo="photo" slide-width="{{slideW}}" slide-height="{{slideH}}"  ng-repeat="photo in slideList"></slide>
-
+    <div class="slide-reel" style="width:{{reelWidth}}px;transform: translate3d(-{{slideVal}}px, 0px, 0px);">
+        <slide  ng-repeat="photo in slideList"
+                slide-width="{{slideW}}"
+                slide-height="{{slideH}}"
+                photo="photo">
+        </slide>
     </div>
-    <span class="right-arrow">
+    <span class="right-arrow"ng-click="rightArrow();">
       <img src="/images/right.png"></img>
     </span>
   </div>
 
   <div class="thumbnails">
-
+    <div class="thumb" ng-repeat="item in slideList">
+      <img src="{{item.thumb_url}}" style="" ng-class="{active:currentIndex == $index}"></img>
+    </div>
   </div>
 </div>
