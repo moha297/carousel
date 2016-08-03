@@ -3,7 +3,7 @@
 /**
  * @ngdoc directive
  * @name carouselApp.directive:carousel
- * @description
+ * @description Carousel  Directive that takes album and photos data as attributes
  * # carousel
  */
 angular.module('carouselApp')
@@ -14,7 +14,8 @@ angular.module('carouselApp')
       replace: true,
       scope: {
         photos: "=photos",
-        album: "=album"
+        album: "=album",
+        name: "@"
       },
       link: function postLink(scope, element /*, attrs*/ ) {
         var slideCont = element.find('.slides-cont');
@@ -26,12 +27,10 @@ angular.module('carouselApp')
 
         function calculate() {
           // Good old jquery
-          var containerWidth = slideCont.width(),
-            containerHeight = slideCont.height();
+          var containerWidth = slideCont.width();
 
           // Set the size of slides based on container
           scope.slideW = containerWidth;
-          scope.slideH = containerHeight;
 
           scope.reelWidth = scope.slideW * scope.slideCount; // reel size based on number of photos
           scope.thumbnailReelWidth = ((scope.slideCount - 1) * 112) + 163; // reel size based on thumbnails
@@ -79,7 +78,7 @@ angular.module('carouselApp')
 
         //leverages settimeout to optimize the size calculations
         // Resize event is fired continously as window is changed
-        // We defer by 300ms to decrease invocations for calculations
+        // We defer by 200ms to decrease invocations for calculations
         function resizeListener() {
           if (timer) {
             window.clearTimeout(timer);
@@ -89,7 +88,7 @@ angular.module('carouselApp')
             scope.$apply(function() {
               calculate();
             });
-          }, 300);
+          }, 200);
 
         }
         angular.element($window).on('resize', resizeListener);

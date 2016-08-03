@@ -29,6 +29,16 @@ angular
           }
         }
       })
+      .when('/resizable', {
+        templateUrl: 'views/resizable.html',
+        controller: 'ResizableCtrl',
+        controllerAs: 'resizable',
+        resolve: {
+          gallery: function(galleryService) {
+            return galleryService.getGallery();
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

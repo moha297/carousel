@@ -1,13 +1,15 @@
-<div class="width100 carousel-cont">
+<div class="fl width100 carousel-cont clearfix" id="{{name}}">
+
   <div class="album-header">
   </div>
   <h3 class="album-title">{{album.name}}</h3>
-  <div class="slides-cont pr" style="height:{{slideH}}px;">
+
+  <div class="slides-cont pr" style="height:auto;">
     <span class="left-arrow" ng-click="leftArrow();">
       <img src="/images/left.png"></img>
     </span>
-    <div class="slide-reel" style="width:{{reelWidth}}px;transform: translate3d(-{{slideVal}}px, 0px, 0px);">
-      <slide ng-repeat="photo in slideList" slide-width="{{slideW}}" slide-height="{{slideH}}" photo="photo">
+    <div class="slide-reel clearfix" style="width:{{reelWidth}}px;transform: translate3d(-{{slideVal}}px, 0px, 0px);">
+      <slide ng-repeat="photo in slideList" slide-width="{{slideW}}" slide-height="auto" photo="photo">
       </slide>
     </div>
     <span class="right-arrow" ng-click="rightArrow();">
@@ -15,8 +17,8 @@
     </span>
   </div>
 
-  <div class="thumbnails">
-    <div class="reel" style="min-width:{{thumbnailReelWidth}}px;">
+  <div class="thumbnails clearfix">
+    <div class="reel clearfix" style="min-width:{{thumbnailReelWidth}}px;">
       <div class="thumb" ng-repeat="item in slideList" ng-click="moveTo($index)" ng-class="{active:currentIndex == $index}">
         <img src="{{item.thumb_url}}" style="" ></img>
       </div>

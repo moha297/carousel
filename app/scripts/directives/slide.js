@@ -7,17 +7,20 @@
  * # slide
  */
 angular.module('carouselApp')
-  .directive('slide', function () {
+  .directive('slide', function() {
     return {
       templateUrl: 'views/directives/slide.html',
       restrict: 'E',
       replace: true,
-      scope:{
-        photo:"=photo"
+      scope: {
+        photo: "=photo",
+        slideWidth: "@"
       },
-      link: function postLink(scope, element, attrs) {
-        scope.width = attrs.slideWidth;
-        scope.height = attrs.slideHeight;
+      link: function postLink( /*scope, element, attrs*/ ) {
+
+        //Does nothing as of now
+        //interpolation took care of height and width
+
       }
     };
   });

@@ -83,16 +83,35 @@ body {
 }
 
 
-
+/**********NON Scaffolding generated CSS starts below*******/
 /* Custom Common CSS*/
+.fl{
+  float:left;
+}
 .width100{
   width:100%;
 }
+.mar-b-lg{
+  margin-bottom:20px;
+}
+
+.no-margin{
+  margin:0px !important;
+}
+
+.large-font{
+  font-size: 24px;
+}
+
+.large-example{
+  width:1218px;
+}
 
 
-/*Custom app css*/
+/*Custom app css for Carousel*/
+
 .carousel-cont{
-  min-height:500px;
+  height:inherit;
   position:relative;
 }
 .carousel-cont .album-header{
@@ -116,10 +135,12 @@ body {
   top:0px;
   z-index: 102;
   color:white;
+  line-height: 100px;
+  margin: 0px;
 }
 .carousel-cont .slides-cont{
   position:relative;
-  min-height:500px;
+  height:inherit;
   overflow: hidden;
 }
 
@@ -147,6 +168,7 @@ body {
 }
 .carousel-cont .slides-cont .slide-reel .slide img{
   object-fit: cover;
+  height:auto;
 }
 .carousel-cont .slides-cont .slide-reel .slide .slide-bottom-header-bkg{
   width:100%;
@@ -164,16 +186,19 @@ body {
   width:100%;
   bottom:0px;
   text-align: center;
-  font-size:40px;
   font-family: arial;
   position:absolute;
   z-index: 102;
   height: 115px;
   color:white;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 .carousel-cont .slides-cont .slide-reel .slide .slide-bottom-header-content h3{
   font-size: 28px;
   font-family: arial;
+  margin-bottom:8px !important;
 }
 .carousel-cont .thumbnails{
   height:157px;
@@ -203,3 +228,5 @@ body {
 .carousel-cont .thumbnails  .thumb.active img{
   height:100px;
 }
+
+/**********Custom app css for Carousel ends*********/
