@@ -62,7 +62,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    //max-width: 730px;
   }
 
   /* Remove the padding we set earlier */
@@ -92,7 +92,6 @@ body {
 
 /*Custom app css*/
 .carousel-cont{
-  color:white;
   min-height:500px;
   position:relative;
 }
@@ -116,6 +115,7 @@ body {
   position:absolute;
   top:0px;
   z-index: 102;
+  color:white;
 }
 .carousel-cont .slides-cont{
   position:relative;
@@ -139,13 +139,14 @@ body {
 }
 
 .carousel-cont .slides-cont .slide-reel{
-  width:100000px;
   transition: transform ease 1000ms;
-
 }
 .carousel-cont .slides-cont .slide-reel .slide{
   float:left;
   position: relative;
+}
+.carousel-cont .slides-cont .slide-reel .slide img{
+  object-fit: cover;
 }
 .carousel-cont .slides-cont .slide-reel .slide .slide-bottom-header-bkg{
   width:100%;
@@ -168,24 +169,37 @@ body {
   position:absolute;
   z-index: 102;
   height: 115px;
+  color:white;
 }
-
+.carousel-cont .slides-cont .slide-reel .slide .slide-bottom-header-content h3{
+  font-size: 28px;
+  font-family: arial;
+}
 .carousel-cont .thumbnails{
   height:157px;
   width:100%;
   background-color: #727980;
   text-align: center;
-  padding: 40px 10px 0px 10px;
+  overflow-y:hidden;
 }
-.carousel-cont .thumbnails .thumb{
+.carousel-cont .thumbnails .reel{
+  text-align: center;
+  display: inline-block;
+  margin-top: 27.5px;
+}
+.carousel-cont .thumbnails .reel .thumb{
   cursor: pointer;
-  float:left;
   padding-right: 7px;
+  display: inline-block;
 }
-.carousel-cont .thumbnails .thumb img{
-
+.carousel-cont .thumbnails  .thumb.active{
+  padding-right: 10px;
+  padding-left:3px;
+}
+.carousel-cont .thumbnails .reel .thumb img{
   height:70px;
 }
-.carousel-cont .thumbnails  .thumb img.active{
+
+.carousel-cont .thumbnails  .thumb.active img{
   height:100px;
 }

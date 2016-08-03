@@ -7,20 +7,19 @@
       <img src="/images/left.png"></img>
     </span>
     <div class="slide-reel" style="width:{{reelWidth}}px;transform: translate3d(-{{slideVal}}px, 0px, 0px);">
-        <slide  ng-repeat="photo in slideList"
-                slide-width="{{slideW}}"
-                slide-height="{{slideH}}"
-                photo="photo">
-        </slide>
+      <slide ng-repeat="photo in slideList" slide-width="{{slideW}}" slide-height="{{slideH}}" photo="photo">
+      </slide>
     </div>
-    <span class="right-arrow"ng-click="rightArrow();">
+    <span class="right-arrow" ng-click="rightArrow();">
       <img src="/images/right.png"></img>
     </span>
   </div>
 
   <div class="thumbnails">
-    <div class="thumb" ng-repeat="item in slideList">
-      <img src="{{item.thumb_url}}" style="" ng-class="{active:currentIndex == $index}"></img>
+    <div class="reel" style="min-width:{{thumbnailReelWidth}}px;">
+      <div class="thumb" ng-repeat="item in slideList" ng-click="moveTo($index)" ng-class="{active:currentIndex == $index}">
+        <img src="{{item.thumb_url}}" style="" ></img>
+      </div>
     </div>
   </div>
 </div>
