@@ -13,11 +13,12 @@ angular.module('carouselApp')
       restrict: 'E',
       replace: true,
       scope: {
-        photos: "=photos",
-        album: "=album",
+        slides: "=slides",
+        metaData: "=",
         name: "@"
       },
       link: function postLink(scope, element /*, attrs*/ ) {
+        debugger;
         var slideCont = element.find('.slides-cont');
 
         //Slider original position
@@ -33,11 +34,11 @@ angular.module('carouselApp')
           scope.slideW = containerWidth;
 
           scope.reelWidth = scope.slideW * scope.slideCount; // reel size based on number of photos
-          scope.thumbnailReelWidth = ((scope.slideCount - 1) * 112) + 163; // reel size based on thumbnails
         }
 
         // We watch the photos data to get things in right order
-        scope.$watch('photos', function(newValue, oldValue) {
+        scope.$watch('slides', function(newValue, oldValue) {
+          debugger;
           var cnt = newValue.length; //number of photos in album
           scope.slideCount = cnt;
 
@@ -64,13 +65,6 @@ angular.module('carouselApp')
           }
         };
 
-        // Thumbnails manipulate the slides using this
-        scope.moveTo = function(index) {
-          if (index < scope.slideCount && index >= 0) {
-            scope.currentIndex = index;
-            scope.slideVal = scope.currentIndex * scope.slideW;
-          }
-        };
 
 
         //Listen to window resize and re-calculate the gallery sizes

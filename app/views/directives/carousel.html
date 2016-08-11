@@ -16,12 +16,4 @@
       <img src="/images/right.png"></img>
     </span>
   </div>
-
-  <div class="thumbnails clearfix">
-    <div class="reel clearfix" style="min-width:{{thumbnailReelWidth}}px;">
-      <div class="thumb" ng-repeat="item in slideList" ng-click="moveTo($index)" ng-class="{active:currentIndex == $index}">
-        <img src="{{item.thumb_url}}" style="" ></img>
-      </div>
-    </div>
-  </div>
 </div>

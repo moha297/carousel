@@ -200,33 +200,5 @@ body {
   font-family: arial;
   margin-bottom:8px !important;
 }
-.carousel-cont .thumbnails{
-  height:157px;
-  width:100%;
-  background-color: #727980;
-  text-align: center;
-  overflow-y:hidden;
-}
-.carousel-cont .thumbnails .reel{
-  text-align: center;
-  display: inline-block;
-  margin-top: 27.5px;
-}
-.carousel-cont .thumbnails .reel .thumb{
-  cursor: pointer;
-  padding-right: 7px;
-  display: inline-block;
-}
-.carousel-cont .thumbnails  .thumb.active{
-  padding-right: 10px;
-  padding-left:3px;
-}
-.carousel-cont .thumbnails .reel .thumb img{
-  height:70px;
-}
-
-.carousel-cont .thumbnails  .thumb.active img{
-  height:100px;
-}
 
 /**********Custom app css for Carousel ends*********/
