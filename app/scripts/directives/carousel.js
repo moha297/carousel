@@ -37,7 +37,7 @@ angular.module('carouselApp')
 
         // We watch the photos data to get things in right order
         scope.$watch('slides', function(newValue, oldValue) {
-          debugger;
+  
           var cnt = newValue.length; //number of photos in album
           scope.slideCount = cnt;
 

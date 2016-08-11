@@ -1,11 +1,12 @@
-<div class="slide">
-  <img src="{{data.image.imageUrl}}" style="width:{{slideWidth}}px;"></img>
-  <div class="slide-bottom-header-bkg">
-  </div>
-  <div class="slide-bottom-header-content">
-    <div>
-    <h3 class="no-margin "></h3>
-    <h4 class="no-margin "></h4>
-  </div>
+<div class="slide" style="width:{{slideWidth-40}}px;margin:0px 20px 30px 20px;">
+  <h2 class="slide-title">{{data.title}}</h2>
+  <div class="row">
+    <div ng-bind-html="data.body" class="slide-body col-lg-6 col-md-6"></div>
+    <div class="slide-img fl">
+      <img src="{{data.image.imageUrl}}"
+      class="fl"
+      style="width:{{data.image.imageWidth}}px;height:{{data.image.imageHeight}}px;"></img>
+    </div>
+
   </div>
 </div>
