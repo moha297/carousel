@@ -19,12 +19,12 @@ angular.module('carouselApp')
     function _processGalleryData(gallery) {
       if (gallery && gallery.data && gallery.data.length > 0) {
         for (var i = 0; i < gallery.data.length; i++) {
-          var slides = gallery.data.slides;
+          var slides = gallery.data[i].slides;
           if (slides && slides.length) {
             for (var j = 0; j < slides.length; j++) {
-              if (slide[j].image && slide[j].image.imageUrl) {
+              if (slides[j].image && slides[j].image.imageUrl) {
                 // Convert to absolute path of healthline.com
-                slide[j].image.imageUrl = 'http://www.healthline.com/' + slide[j].image.imageUrl;
+                slides[j].image.imageUrl = 'http://www.healthline.com/' + slides[j].image.imageUrl;
               }
             }
           }

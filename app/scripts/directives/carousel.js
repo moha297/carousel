@@ -18,7 +18,6 @@ angular.module('carouselApp')
         name: "@"
       },
       link: function postLink(scope, element /*, attrs*/ ) {
-        debugger;
         var slideCont = element.find('.slides-cont');
 
         //Slider original position

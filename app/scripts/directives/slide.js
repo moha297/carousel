@@ -13,7 +13,7 @@ angular.module('carouselApp')
       restrict: 'E',
       replace: true,
       scope: {
-        photo: "=photo",
+        data: "=data",
         slideWidth: "@"
       },
       link: function postLink( /*scope, element, attrs*/ ) {

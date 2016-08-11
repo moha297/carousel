@@ -2,14 +2,14 @@
 
   <div class="album-header">
   </div>
-  <h3 class="album-title">{{album.name}}</h3>
+  <h3 class="album-title">{{meta.title}}</h3>
 
   <div class="slides-cont pr" style="height:auto;">
     <span class="left-arrow" ng-click="leftArrow();">
       <img src="/images/left.png"></img>
     </span>
     <div class="slide-reel clearfix" style="width:{{reelWidth}}px;transform: translate3d(-{{slideVal}}px, 0px, 0px);">
-      <slide ng-repeat="photo in slideList" slide-width="{{slideW}}" slide-height="auto" photo="photo">
+      <slide ng-repeat="slide in slideList" slide-width="{{slideW}}" slide-height="auto" data="slide">
       </slide>
     </div>
     <span class="right-arrow" ng-click="rightArrow();">
