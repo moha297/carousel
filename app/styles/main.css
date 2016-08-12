@@ -92,7 +92,7 @@ body {
   width:100%;
 }
 .mar-b-lg{
-  margin-bottom:20px;
+  margin-bottom:40px;
 }
 
 .no-margin{
@@ -110,54 +110,44 @@ body {
 
 /*Custom app css for Carousel*/
 
+.title-font{
+  color:#555;
+  font-size:2em;
+}
+.author-font{
+  color:#666;
+  font-size:1em;
+}
 .carousel-cont{
   height:inherit;
   position:relative;
-}
-.carousel-cont .album-header{
-  width:100%;
-  background-color: #000000;
-  opacity:0.5;
-  position:absolute;;
-  z-index: 100;
-  height: 100px;
-  top:0px;
-  left:0px;
+  -moz-box-shadow: 0 3px 3px -1px #c2cacc,0 -3px 3px -1px #c2cacc;
+-webkit-box-shadow: 0 3px 3px -1px #c2cacc,0 -3px 3px -1px #c2cacc;
+box-shadow: 0 3px 3px -1px #c2cacc,0 -3px 3px -1px #c2cacc;
 }
 
-.carousel-cont  .album-title{
-  width:100%;
-  left:0px;
-  text-align: center;
-  font-size:40px;
-  font-family: arial;
-  position:absolute;
-  top:0px;
-  z-index: 102;
-  color:white;
-  line-height: 100px;
-  margin: 0px;
-}
 .carousel-cont .slides-cont{
   position:relative;
   height:inherit;
   overflow: hidden;
-  border:1px solid;
+
 }
 
-.carousel-cont .slides-cont .left-arrow, .carousel-cont .slides-cont .right-arrow{
+.carousel-cont .left-arrow, .carousel-cont .right-arrow{
   position:absolute;
   top: calc(50% - 39px);
   height:78px;
   width:78px;
   cursor: pointer;
-  z-index: 105
+  z-index: 105;
+  background: red;
+  border-radius: 5px;
 }
-.carousel-cont .slides-cont .left-arrow{
-  left:30px;
+.carousel-cont .left-arrow{
+  left:-65px;
 }
-.carousel-cont .slides-cont .right-arrow{
-  right:30px;
+.carousel-cont .right-arrow{
+  right:-65px;
 }
 
 .carousel-cont .slides-cont .slide-reel{
@@ -170,7 +160,7 @@ body {
 .carousel-cont .slides-cont .slide-reel .slide .slide-title{
 color:#555;
 line-height: 36px;
-font-size: 2.2em;
+font-size: 1.5em;
 }
 .carousel-cont .slides-cont .slide-reel .slide .slide-img{
   object-fit: cover;

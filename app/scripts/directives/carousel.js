@@ -7,7 +7,7 @@
  * # carousel
  */
 angular.module('carouselApp')
-  .directive('carousel', ['$window', function($window) {
+  .directive('carousel', ['$window', 'trackingService', function($window, trackingService) {
     return {
       templateUrl: 'views/directives/carousel.html',
       restrict: 'E',
@@ -15,15 +15,19 @@ angular.module('carouselApp')
       scope: {
         slides: "=slides",
         metaData: "=",
-        name: "@"
+        name: "@",
+        trackingId: "@"
       },
-      link: function postLink(scope, element /*, attrs*/ ) {
+      link: function postLink(scope, element, attrs) {
         var slideCont = element.find('.slides-cont');
 
         //Slider original position
         scope.slideVal = 0;
 
         scope.currentIndex = 0;
+
+        // pointer to the next slide to be injected
+        scope.nextSlideIndex;
 
         function calculate() {
           // Good old jquery
@@ -37,31 +41,72 @@ angular.module('carouselApp')
 
         // We watch the photos data to get things in right order
         scope.$watch('slides', function(newValue, oldValue) {
-  
+
           var cnt = newValue.length; //number of photos in album
           scope.slideCount = cnt;
 
           //calculate the view size attributes
           calculate();
 
-          // This will take the photos to the view layer
-          scope.slideList = newValue;
+          //Preserve all the slides set
+          scope.allSlides = newValue;
+
+          // This will take the slides to the view layer -  only the first two slides are injected
+          scope.slideList = [];
+          scope.nextSlideIndex = 0;
+          // Push the first two slides
+          scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
+          scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
+
         });
 
 
-        // Handler for left arrow click event. Moves the slider left.
+
+        /**
+         *Handler for left arrow click event. Moves the slider left.
+         */
         scope.leftArrow = function() {
           if (scope.currentIndex > 0) {
             scope.currentIndex--;
             scope.slideVal = scope.currentIndex * scope.slideW;
+
+            if (attrs.trackingId) {
+              trackingService.trackClick({
+                'contentid': attrs.trackingId,
+                'action': 'left-arrow-click'
+              });
+            }
           }
+
+
+
         };
+
+        function pushNextSlidesIntoReel(){
+          if(scope.nextSlideIndex < scope.allSlides.length) {
+            // Push only till the last slide is added
+            scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
+          }
+
+        }
+
         // Handler for right arrow click event. Moves the slider right.
         scope.rightArrow = function() {
           if (scope.currentIndex < scope.slideCount - 1) {
             scope.currentIndex++;
             scope.slideVal = scope.currentIndex * scope.slideW;
+            // Add another node from slide list
+            pushNextSlidesIntoReel();
+            if (attrs.trackingId) {
+              trackingService.trackClick({
+                'contentid': attrs.trackingId,
+                'action': 'right-arrow-click'
+              });
+            }
           }
+
+
+
         };
 
 

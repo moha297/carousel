@@ -1,17 +1,17 @@
 <div class="fl width100 carousel-cont clearfix" id="{{name}}">
-
-  
-
+  {{allSlides.length}} {{slideList.length}}
+  <span class="left-arrow" ng-click="leftArrow();">
+    <img src="/images/left.png"></img>
+  </span>
   <div class="slides-cont pr" style="height:auto;">
-    <span class="left-arrow" ng-click="leftArrow();">
-      <img src="/images/left.png"></img>
-    </span>
+
     <div class="slide-reel clearfix" style="width:{{reelWidth}}px;transform: translate3d(-{{slideVal}}px, 0px, 0px);">
       <slide ng-repeat="slide in slideList" slide-width="{{slideW}}" slide-height="auto" data="slide">
       </slide>
     </div>
-    <span class="right-arrow" ng-click="rightArrow();">
-      <img src="/images/right.png"></img>
-    </span>
+
   </div>
+  <span class="right-arrow" ng-click="rightArrow();">
+    <img src="/images/right.png"></img>
+  </span>
 </div>

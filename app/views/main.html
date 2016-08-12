@@ -1,10 +1,13 @@
 <div class="row">
-  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" ng-if="slides.length > 0">
-    <p class="fl width100 large-font"></p>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 mar-b-lg" ng-if="slides.length > 0">
+    <h2 class="fl width100 large-font title-font">{{meta.title}}</h2>
+    <h4 class="author-font"> by {{meta.author}} </h4>
     <div class="fl width100">
+      {{slides.length}}
       <carousel name="example-gallery"
         slides="slides"
-        meta-data="meta"></carousel>
+        meta-data="meta"
+        tracking-id="{{meta.id}}"></carousel>
     </div>
   </div>
 </div>
