@@ -2,8 +2,15 @@
   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 mar-b-lg" ng-if="slides.length > 0">
     <h2 class="fl width100 large-font title-font">{{meta.title}}</h2>
     <h4 class="author-font"> by {{meta.author}} </h4>
+    <div class="fl width100 mar-b-md sort-options">
+        <span class="label "
+              ng-class="{'label-primary':isDefaultSort, 'label-default': !isDefaultSort}"
+              ng-click="defaultSort();">Default Sort</span>
+        <span class="label"
+              ng-class="{'label-primary': !isDefaultSort, 'label-default': isDefaultSort}"
+              ng-click="alphaSort();">Alpha Sort</span>
+    </div>
     <div class="fl width100">
-      {{slides.length}}
       <carousel name="example-gallery"
         slides="slides"
         meta-data="meta"

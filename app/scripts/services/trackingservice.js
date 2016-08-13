@@ -33,8 +33,8 @@ angular.module('carouselApp')
       var p = params || {};
 
       // Add a cache buster to params
-      params["t"] = new Date().getTime();
-      var url = 'http://www.healthline.com/images/clear.gif' + _mapToQueryString(params);
+      p.t = new Date().getTime();
+      var url = 'http://www.healthline.com/images/clear.gif' + _mapToQueryString(p);
       var bodyNode = document.getElementsByTagName('body')[0],
         i = document.createElement('img');
       i.setAttribute('src', url);
@@ -42,7 +42,7 @@ angular.module('carouselApp')
       i.onload = function() {
         // Delete the image node created
         bodyNode.removeChild(i);
-      }
+      };
       bodyNode.appendChild(i);
     }
 
@@ -57,5 +57,5 @@ angular.module('carouselApp')
     }
     return {
       trackClick: _trackClickAction
-    }
+    };
   });

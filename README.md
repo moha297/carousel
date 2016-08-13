@@ -21,16 +21,14 @@ You can access it using the following url as well:
 
 Run `grunt` for building and `grunt serve` for preview.
 
-## Testing
+## Assumptions and notes
+- Flexibility was taken with respect to layout built. Inspiration was taken from example
+provided
+- The Carousel loads slides on demand into the slide reel instead of images inside slides.
+This seems to be more scaleable and easy to leverage in all scenarios.
+- No options were created for on demand loading as user interacts in the carousel. The same can be exposed as options for the directive too.
 
-Running `grunt test` will run the unit tests with karma.
 
-
-##Improvements possible
-- The gallery can be further made Responsive by adding dynamic font resizing
-and changing the header sizes as well.
-- The images are leveraging object-fit:cover to prevent the aspect-ratio causing
-bad user experience. If different image for few aspect ratio's are available we can improve things more
 
 ##Note
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)

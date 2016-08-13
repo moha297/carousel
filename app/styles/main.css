@@ -95,6 +95,10 @@ body {
   margin-bottom:40px;
 }
 
+.mar-b-md{
+  margin-bottom:20px;
+}
+
 .no-margin{
   margin:0px !important;
 }
@@ -117,6 +121,17 @@ body {
 .author-font{
   color:#666;
   font-size:1em;
+}
+
+.sort-options{
+  font-size:18px;
+  font-weight: normal;
+}
+.sort-options .label{
+  cursor: pointer;
+  padding-left:20px;
+  padding-right:20px;
+  margin-right: 20px;
 }
 .carousel-cont{
   height:inherit;

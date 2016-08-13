@@ -21,14 +21,9 @@ angular.module('carouselApp')
       link: function postLink(scope, element, attrs) {
         var slideCont = element.find('.slides-cont');
 
-        //Slider original position
-        scope.slideVal = 0;
-
-        scope.currentIndex = 0;
-
-        // pointer to the next slide to be injected
-        scope.nextSlideIndex;
-
+        /**
+         * Calculate the dimensions and other maths
+         */
         function calculate() {
           // Good old jquery
           var containerWidth = slideCont.width();
@@ -39,11 +34,23 @@ angular.module('carouselApp')
           scope.reelWidth = scope.slideW * scope.slideCount; // reel size based on number of photos
         }
 
-        // We watch the photos data to get things in right order
-        scope.$watch('slides', function(newValue, oldValue) {
+        /**
+         * We watch the slides data to get things in right order
+         * The carousel state is reset on changes to slides data
+         */
+        scope.$watch('slides', function(newValue/*, oldValue*/) {
 
           var cnt = newValue.length; //number of photos in album
           scope.slideCount = cnt;
+
+          //Slider original position
+          scope.slideVal = 0;
+
+          scope.currentIndex = 0;
+
+          // pointer to the next slide to be injected
+          scope.nextSlideIndex = 0;
+
 
           //calculate the view size attributes
           calculate();
@@ -53,7 +60,8 @@ angular.module('carouselApp')
 
           // This will take the slides to the view layer -  only the first two slides are injected
           scope.slideList = [];
-          scope.nextSlideIndex = 0;
+
+
           // Push the first two slides
           scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
           scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
@@ -78,16 +86,30 @@ angular.module('carouselApp')
             }
           }
 
-
-
         };
 
-        function pushNextSlidesIntoReel(){
-          if(scope.nextSlideIndex < scope.allSlides.length) {
-            // Push only till the last slide is added
-            scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
+        /**
+         * Pushes slides into the reel. If available progressively.
+         * Rule - If at the time of user clicking 'right' on the carousel
+         * the number of slides available further drops equal to or less than 2 we will
+         * load two additional slides if available
+         */
+        function pushNextSlidesIntoReel() {
+          function pushSlide() {
+            if (scope.nextSlideIndex < scope.allSlides.length) {
+              // Push only till the last slide is added
+              scope.slideList.push(scope.allSlides[scope.nextSlideIndex++]);
+            }
           }
 
+          // To push or not to push
+          if (scope.nextSlideIndex - scope.currentIndex <= 2) {
+            // Part of requirement (the next slide image and the slide image after next)
+            // We are pushing two slides at a time. Trying to ensure atleast two next slides are available
+            // If we need to load only the next slide we should call pushSlide only once here
+            pushSlide();
+            pushSlide();
+          }
         }
 
         // Handler for right arrow click event. Moves the slider right.
@@ -105,8 +127,6 @@ angular.module('carouselApp')
             }
           }
 
-
-
         };
 
 
@@ -122,7 +142,6 @@ angular.module('carouselApp')
             window.clearTimeout(timer);
           }
           timer = window.setTimeout(function() {
-            console.log("resize")
             scope.$apply(function() {
               calculate();
             });
@@ -130,13 +149,14 @@ angular.module('carouselApp')
 
         }
         angular.element($window).on('resize', resizeListener);
+
+        // Cleanup
         scope.$on('destroy', function() {
           if (timer) {
             window.clearTimeout(timer);
           }
           angular.element($window).off('resize', resizeListener);
         });
-
 
       }
     };
