@@ -10,6 +10,7 @@ Run the following command:
 npm install
 bower install
 `
+
 ## Open the app in local environment
 Run the following command:
 `grunt serve`
